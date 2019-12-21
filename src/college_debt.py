@@ -10,5 +10,7 @@ if __name__ == '__main__':
     print("Checking unit compatibility...")
     if "current US$" in str(indicator[0].get("name")):
         print("Indicator is in proper units of current US dollars. Continuing.")
+        series = p.Series()
+        series = wb.get_data(id, pandas=True)
     else:
         print("Indicator is not in proper units of current US dollars.")
