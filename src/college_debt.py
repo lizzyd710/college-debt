@@ -5,5 +5,10 @@ import pandas as p
 DEBT = 1.5 * 10 ** 12
 
 if __name__ == '__main__':
-    id = input("Enter indicator ID: ")
+    id = input("Enter ID for an indicator using current US dollars: ")
     indicator = wb.get_indicator(id)
+    if "current US$" in str(indicator[0].get("name")):
+        df = wb.get_dataframe(indicator)
+        df.head()
+    else:
+        print("Indicator is not in proper units of current US dollars.")
