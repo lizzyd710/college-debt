@@ -7,8 +7,8 @@ DEBT = 1.5 * 10 ** 12
 if __name__ == '__main__':
     id = input("Enter ID for an indicator using current US dollars: ")
     indicator = wb.get_indicator(id)
+    print("Checking unit compatibility...")
     if "current US$" in str(indicator[0].get("name")):
-        df = wb.get_dataframe(indicator)
-        df.head()
+        print("Indicator is in proper units of current US dollars. Continuing.")
     else:
         print("Indicator is not in proper units of current US dollars.")
